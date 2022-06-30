@@ -1,5 +1,3 @@
-console.log('Hello!')
-
 class Ninja {
     constructor(name, health = 10) {
         this.name = name;
@@ -24,5 +22,25 @@ class Ninja {
     }
 }
 
-const ninja1 = new Ninja('Jack', 10);
-ninja1.sayName().showStats().drinkSake().showStats();
+// const ninja1 = new Ninja('Jack', 10);
+// ninja1.sayName().showStats().drinkSake().showStats();
+
+class Sensei extends Ninja {
+    constructor(name, health, speed, strength) {
+        super(name, health, speed, strength);
+        this.health = 200;
+        this.speed = 10;
+        this.strength = 10;
+        this.wisdom = 10;
+    }
+
+    speakWisdom() {
+        this.drinkSake();
+        console.log("What one programmer can do in one month, two programmers can do in two months.")
+        return this;
+    }
+}
+
+// example output
+const superSensei = new Sensei("Master Splinter");
+superSensei.speakWisdom().showStats();
